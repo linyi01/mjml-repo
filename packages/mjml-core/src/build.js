@@ -10,6 +10,11 @@ const includeRegex = /<mj-include\s+from=['"](.*)['"]\s+\/>/g
 
 const getName = p => path.basename(p).replace(/\.mjml$/, '')
 
+/*
+ * Usage:
+ *
+ * const email = build(mjml, [ './header.mjml', './footer.mjml', './hero.mjml' ])
+ */
 export default (email, includes) => {
   const templates = includes.reduce((p, c) =>
     ({ ...p, [getName(c)]: extract(fs.readFileSync(c)) }), {})
