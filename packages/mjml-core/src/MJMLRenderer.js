@@ -1,3 +1,4 @@
+import build from './build'
 import { EmptyMJMLError } from './Error'
 import { html as beautify } from 'js-beautify'
 import { fixLegacyAttrs, removeCDATA } from './helpers/postRender'
@@ -20,7 +21,7 @@ export default class MJMLRenderer {
   constructor (content, options = {}) {
     this.registerDotfile()
 
-    this.content = content
+    this.content = options.include ? build(content, options.include) : content
     this.options = options
 
     if (typeof this.content === 'string') {
