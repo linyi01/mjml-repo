@@ -30,7 +30,7 @@ const postRender = $ => {
 
   if (mediaQueries.length > 0) {
     const mediaQuery = `<style type="text/css">
-  @media only screen and (min-width:480px) {
+  @media only screen and (min-width:320px) {
     ${mediaQueries.join('\n')}
   }
 </style>\n`
